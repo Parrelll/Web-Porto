@@ -521,6 +521,13 @@ p {
     box-sizing: border-box;
   }
 
+  section,
+  .section-card,
+  .contact-section {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .wrapper,
   .content,
   section {
@@ -530,6 +537,7 @@ p {
 
   html,
   body {
+    width: 100%;
     max-width: 100%;
     overflow-x: hidden !important;
     position: relative;
@@ -551,6 +559,7 @@ p {
     margin-left: 0 !important;
     padding: 0;
     width: 100% !important;
+    max-width: 100vw;
     overflow-x: hidden;
     box-sizing: border-box;
   }
