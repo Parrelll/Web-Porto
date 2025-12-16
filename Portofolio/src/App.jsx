@@ -116,7 +116,7 @@ export default function App() {
             <a href="#skills" onClick={toggleSidebar}>
               Skills
             </a>
-            <a href="#contact" onClick={toggleSidebar}>
+            <a href="#contact-section" onClick={toggleSidebar}>
               Contact
             </a>
           </nav>

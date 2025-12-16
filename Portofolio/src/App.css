@@ -53,13 +53,20 @@ a {
   width: 260px;
 }
 
+.wrapper.closed .name {
+  flex-direction: row;
+  gap: 14px;
+  white-space: nowrap;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 2500;
+  z-index: 1000;
   opacity: 0;
   pointer-events: none;
   transition: 0.3s ease;
+  left: 280px;
 }
 
 .wrapper.open .overlay {
@@ -134,7 +141,7 @@ a {
   position: fixed;
   top: 22px;
   left: 22px;
-  z-index: 1100;
+  z-index: 3000;
   padding: 12px 16px;
   background: #111;
   color: #fff;
@@ -184,8 +191,6 @@ a {
 .name.inline {
   white-space: normal !important; /* ✅ IZINKAN WRAP */
   flex-direction: column !important;
-  align-items: center;
-  text-align: center;
 }
 
 .role {
@@ -431,7 +436,7 @@ p {
   outline: none;
   padding: 15px;
   border-radius: 12px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 14px;
 }
 
@@ -442,7 +447,7 @@ p {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #7c3aed;
+  border-color: #8e8d8f;
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
 }
 
