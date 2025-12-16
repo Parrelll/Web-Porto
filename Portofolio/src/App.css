@@ -306,9 +306,11 @@ p {
 
 /* ================= CONTACT ================= */
 .contact-section {
+  border-radius: 10px;
   padding: 80px 10%;
   color: var(--text-light);
   background-color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 
 .contact-title {
