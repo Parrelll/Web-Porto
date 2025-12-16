@@ -257,47 +257,49 @@ export default function App() {
 
         {/* CONTACT */}
         <section class="contact-section" id="contact">
-          <h2 class="contact-title">Contact Us</h2>
+          <div className="contact-container">
+            <h2 class="contact-title">Contact Us</h2>
 
-          <div class="contact-wrapper">
-            {/* LEFT CARD */}
-            <div class="contact-info">
-              <h3>Get In Touch</h3>
-              <li class="contact-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Purwokerto, Central Java</span>
-              </li>
-
-              <ul>
+            <div class="contact-wrapper">
+              {/* LEFT CARD */}
+              <div class="contact-info">
+                <h3>Get In Touch</h3>
                 <li class="contact-item">
-                  <i class="fa-solid fa-envelope"></i>
-                  <span>farrelwr116@gmail.com</span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>Purwokerto, Central Java</span>
                 </li>
 
-                <li class="contact-item">
-                  <i class="fa-solid fa-phone"></i>
-                  <span>(+62) 8960 - 7142 - 946</span>
-                </li>
+                <ul>
+                  <li class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>farrelwr116@gmail.com</span>
+                  </li>
 
-                <li class="contact-item">
-                  <i class="fa-brands fa-whatsapp"></i>
-                  <span>(+62) 8960 - 7142 - 946</span>
-                </li>
+                  <li class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>(+62) 8960 - 7142 - 946</span>
+                  </li>
 
-                <li class="contact-item">
-                  <i class="fa-brands fa-instagram"></i>
-                  <span>@_pprrlll</span>
-                </li>
-              </ul>
+                  <li class="contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>(+62) 8960 - 7142 - 946</span>
+                  </li>
+
+                  <li class="contact-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@_pprrlll</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CARD */}
+              <form className="contact-form" onSubmit={sendWhatsApp}>
+                <input name="name" placeholder="Your Name" required />
+                <input name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Your Message" required />
+                <button type="submit">Send Message</button>
+              </form>
             </div>
-
-            {/* RIGHT CARD */}
-            <form className="contact-form" onSubmit={sendWhatsApp}>
-              <input name="name" placeholder="Your Name" required />
-              <input name="email" placeholder="Your Email" required />
-              <textarea name="message" placeholder="Your Message" required />
-              <button type="submit">Send Message</button>
-            </form>
           </div>
         </section>
       </main>
