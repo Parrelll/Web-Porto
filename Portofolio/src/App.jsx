@@ -116,7 +116,7 @@ export default function App() {
             <a href="#skills" onClick={toggleSidebar}>
               Skills
             </a>
-            <a href="#contact-section" onClick={toggleSidebar}>
+            <a href="#contact" onClick={toggleSidebar}>
               Contact
             </a>
           </nav>
@@ -256,7 +256,7 @@ export default function App() {
         </section>
 
         {/* CONTACT */}
-        <section class="contact-section">
+        <section class="contact-section" id="contact">
           <h2 class="contact-title">Contact Us</h2>
 
           <div class="contact-wrapper">
