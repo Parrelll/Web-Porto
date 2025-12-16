@@ -20,7 +20,9 @@ const sendWhatsApp = (e) => {
   e.target.reset();
 };
 
-
+const toggleSidebar = () => {
+  setSidebarOpen((prev) => !prev);
+};
 
 const skillsData = [
   { name: "HTML", level: 90 },
@@ -102,11 +104,21 @@ export default function App() {
         <div className="sidebar-inner">
           <div className="logo">Farrel Wiratama Ramadhan</div>
           <nav className="menu">
-            <a href="#hero">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+            <a href="#hero" onClick={toggleSidebar}>
+              Home
+            </a>
+            <a href="#about" onClick={toggleSidebar}>
+              About
+            </a>
+            <a href="#projects" onClick={toggleSidebar}>
+              Projects
+            </a>
+            <a href="#skills" onClick={toggleSidebar}>
+              Skills
+            </a>
+            <a href="#contact" onClick={toggleSidebar}>
+              Contact
+            </a>
           </nav>
 
           <div className="social">
@@ -128,6 +140,8 @@ export default function App() {
           </div>
         </div>
       </aside>
+
+      <div className="overlay" onClick={() => setSidebarOpen(false)}></div>
 
       {/* === MAIN CONTENT === */}
       <main className="content">

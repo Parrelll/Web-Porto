@@ -12,6 +12,12 @@
 body {
   background: #f7f7f7;
   color: #222;
+  overflow-x: hidden;
+}
+
+body.sidebar-open {
+  overflow: hidden;
+  width: 100%;
 }
 
 a {
@@ -36,14 +42,29 @@ a {
   background: #fff;
   border-right: 1px solid #e5e5e5;
   box-shadow: 4px 0 16px rgba(0, 0, 0, 0.05);
-  transition: width 0.4s ease, transform 0.4s ease;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
   overflow: hidden;
-  transform: translateX(0);
+  z-index: 1200;
 }
 
 .wrapper.open .sidebar {
   transform: translateX(0); /* visible */
   width: 260px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.wrapper.open .overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sidebar-inner {
@@ -113,7 +134,7 @@ a {
   position: fixed;
   top: 22px;
   left: 22px;
-  z-index: 2000;
+  z-index: 1100;
   padding: 12px 16px;
   background: #111;
   color: #fff;
@@ -161,9 +182,10 @@ a {
 
 /* Sidebar CLOSED → 1 baris */
 .name.inline {
-  flex-direction: row;
-  gap: 14px;
-  white-space: nowrap;
+  white-space: normal !important; /* ✅ IZINKAN WRAP */
+  flex-direction: column !important;
+  align-items: center;
+  text-align: center;
 }
 
 .role {
@@ -388,7 +410,6 @@ p {
   color: #374151;
 }
 
-
 /* RIGHT CARD */
 .contact-form {
   background: rgba(255, 255, 255, 0.9);
@@ -458,6 +479,8 @@ p {
 /* ============== Tablet ================= */
 @media (max-width: 992px) {
   .content {
+    margin-left: 0;
+    width: 100%;
     padding: 40px;
   }
 
@@ -477,26 +500,72 @@ p {
 
 /* ============== Handphone ================= */
 @media (max-width: 768px) {
-  /* Sidebar auto hidden */
-  .sidebar {
-    transform: translateX(-100%);
-    width: 0;
+  img,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
   }
 
-  .content {
-    margin-left: 0;
+  img,
+  input,
+  textarea,
+  button {
+    max-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .wrapper,
+  .content,
+  section {
     width: 100%;
-    padding: 28px;
+    overflow-x: hidden;
   }
 
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden !important;
+    position: relative;
+  }
+
+  .content > section,
+  .content > div {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.sidebar-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  /* Layout utama */
+  .content {
+    margin-left: 0 !important;
+    padding: 0;
+    width: 100% !important;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Hero */
   .hero {
     flex-direction: column-reverse;
     text-align: center;
+    gap: 30px;
   }
 
   .hero-img-wrapper {
     width: 100%;
-    height: 380px;
+    height: 360px;
+    box-sizing: border-box;
   }
 
   .hero-text {
@@ -505,19 +574,56 @@ p {
 
   .name {
     font-size: 36px;
-  }
-
-  .role {
-    font-size: 18px;
+    flex-direction: column !important;
   }
 
   .buttons {
     justify-content: center;
   }
 
-  /* Projects → 1 kolom */
+  /* Projects */
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* CONTACT — FIX UTAMA */
+  .contact-section {
+    padding: 32px 16px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 28px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-title {
+    font-size: 30px;
+  }
+
+  .sidebar {
+    width: 280px !important; /* FIXED */
+    max-width: 80%;
+    transform: translateX(-100%);
+    left: 0;
+  }
+
+  .wrapper.open .sidebar {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    width: 100vw;
+    height: 100vh;
   }
 }
 
@@ -537,7 +643,15 @@ p {
   }
 
   .section-card {
-    padding: 26px;
+    padding: 24px;
+  }
+
+  .contact-item {
+    gap: 10px;
+  }
+
+  .contact-item span {
+    font-size: 14px;
   }
 }
 
@@ -552,4 +666,8 @@ p {
   .contact-wrapper {
     grid-template-columns: 1fr;
   }
+}
+
+html {
+  overflow-x: clip;
 }
